@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { TaskServiceClient } from "../api/task_grpc_web_pb";
 import './App.css';
-import { TaskServiceClient } from "../api/TaskServiceClientPb";
 
 import logo from './logo.svg';
 
