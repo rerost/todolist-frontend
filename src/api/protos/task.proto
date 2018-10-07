@@ -2,7 +2,7 @@ syntax = "proto3";
 option go_package = "api_pb";
 package com.github.rerost.todolist_server.api;
 
-import "google/api/annotations.proto";
+// import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
@@ -10,31 +10,31 @@ import "google/protobuf/field_mask.proto";
 
 service TaskService {
   rpc ListTasks (ListTasksRequest) returns (ListTasksResponse) {
-    option (google.api.http) = {
-      get: "/tasks"
-    };
+    // option (google.api.http) = {
+    //   get: "/tasks"
+    // };
   }
   rpc GetTask (GetTaskRequest) returns (Task) {
-    option (google.api.http) = {
-      get: "/tasks/{task_id}"
-    };
+    // option (google.api.http) = {
+    //   get: "/tasks/{task_id}"
+    // };
   }
   rpc CreateTask (CreateTaskRequest) returns (Task) {
-    option (google.api.http) = {
-      post: "/tasks"
-      body: "*"
-    };
+    // option (google.api.http) = {
+    //   post: "/tasks"
+    //   body: "*"
+    // };
   }
   rpc UpdateTask (UpdateTaskRequest) returns (Task) {
-    option (google.api.http) = {
-      patch: "/tasks/{task.task_id}"
-      body: "task"
-    };
+    // option (google.api.http) = {
+    //   patch: "/tasks/{task.task_id}"
+    //   body: "task"
+    // };
   }
   rpc DeleteTask (DeleteTaskRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/tasks/{task_id}"
-    };
+    // option (google.api.http) = {
+    //   delete: "/tasks/{task_id}"
+    // };
   }
 }
 
