@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './App.css';
+import { TaskServiceClient } from "../api/TaskServiceClientPb";
 
 import logo from './logo.svg';
 
@@ -11,11 +12,17 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <p className="App-intro" onClick={this.onClickHandler}>
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
       </div>
     );
+  }
+
+  private onClickHandler(e: React.MouseEvent<HTMLParagraphElement>) {
+    window.console.log(e)
+    const taskClient = new TaskServiceClient("http://localhost:3001", {}, {})
+    window.console.log(taskClient)
   }
 }
 
