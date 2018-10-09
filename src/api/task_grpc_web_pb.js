@@ -364,5 +364,55 @@ proto.com.github.rerost.todolist_server.api.TaskServicePromiseClient.prototype.d
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.google.protobuf.Empty,
+ *   !proto.com.github.rerost.todolist_server.api.Task>}
+ */
+const methodInfo_StreamTask = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.com.github.rerost.todolist_server.api.Task,
+  /** @param {!proto.google.protobuf.Empty} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.com.github.rerost.todolist_server.api.Task.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.google.protobuf.Empty} request The request proto
+ * @param {!Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.com.github.rerost.todolist_server.api.Task>}
+ *     The XHR Node Readable Stream
+ */
+proto.com.github.rerost.todolist_server.api.TaskServiceClient.prototype.streamTask =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/com.github.rerost.todolist_server.api.TaskService/StreamTask',
+      request,
+      metadata,
+      methodInfo_StreamTask);
+};
+
+
+/**
+ * @param {!proto.google.protobuf.Empty} request The request proto
+ * @param {!Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.com.github.rerost.todolist_server.api.Task>}
+ *     The XHR Node Readable Stream
+ */
+proto.com.github.rerost.todolist_server.api.TaskServicePromiseClient.prototype.streamTask =
+    function(request, metadata) {
+  return this.delegateClient_.client_.serverStreaming(this.delegateClient_.hostname_ +
+      '/com.github.rerost.todolist_server.api.TaskService/StreamTask',
+      request,
+      metadata,
+      methodInfo_StreamTask);
+};
+
+
 module.exports = proto.com.github.rerost.todolist_server.api;
 

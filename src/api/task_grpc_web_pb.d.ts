@@ -49,5 +49,10 @@ export class TaskServiceClient {
                response: Empty) => void
   ): grpcWeb.ClientReadableStream;
 
+  streamTask(
+    request: Empty,
+    metadata: grpcWeb.Metadata
+  ): grpcWeb.ClientReadableStream;
+
 }
 
